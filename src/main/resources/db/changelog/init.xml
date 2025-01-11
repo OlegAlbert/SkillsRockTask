@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+  <changeSet id="0" author="Oleg Albert">
+    <createTable tableName="wallet">
+      <column name="id" type="uuid">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="balance" type="decimal(19,2)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="1" author="Oleg Albert">
+    <createTable tableName="transaction">
+      <column name="id" type="uuid">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="wallet_id" type="uuid">
+        <constraints nullable="false"/>
+      </column>
+      <column name="operation_type" type="varchar(10)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="amount" type="decimal(19,2)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="timestamp" type="timestamp">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="2" author="Oleg Albert">
+    <addForeignKeyConstraint
+      baseTableName="transaction"
+      baseColumnNames="wallet_id"
+      referencedTableName="wallet"
+      referencedColumnNames="id"
+      constraintName="fk_wallet_transaction"
+      onDelete="CASCADE"
+      onUpdate="CASCADE"/>
+  </changeSet>
+</databaseChangeLog>
