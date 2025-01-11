@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+  <changeSet id="0" author="Oleg Albert">
+    <insert tableName="wallet">
+      <column name="id" value="5ae7a7bb-009d-485d-aedd-b37e98e941de"/>
+      <column name="balance" value="1000.00"/>
+    </insert>
+
+    <insert tableName="transaction">
+      <column name="id" value="5fb5e129-7b5d-4526-33e3-b93bc23963e5"/>
+      <column name="wallet_id" value="5ae7a7bb-009d-485d-aedd-b37e98e941de"/>
+      <column name="operation_type" value="DEPOSIT"/>
+      <column name="amount" value="1500"/>
+      <column name="date_of_operation" value="2025-01-10"/>
+    </insert>
+
+    <insert tableName="transaction">
+      <column name="id" value="7896cccc-46fc-4cb8-a86b-1fbaa24c01ec"/>
+      <column name="wallet_id" value="5ae7a7bb-009d-485d-aedd-b37e98e941de"/>
+      <column name="operation_type" value="WITHDRAW"/>
+      <column name="amount" value="500"/>
+      <column name="date_of_operation" value="2025-01-11"/>
+    </insert>
+  </changeSet>
+</databaseChangeLog>

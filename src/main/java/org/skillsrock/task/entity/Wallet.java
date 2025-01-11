@@ -23,7 +23,7 @@ public class Wallet {
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
-  @Column(name = "balance")
+  @Column(name = "balance", nullable = false, precision = 19, scale = 2)
   @DecimalMin(value = "0.0")
   private BigDecimal balance;
 

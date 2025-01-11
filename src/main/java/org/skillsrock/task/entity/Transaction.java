@@ -2,6 +2,8 @@ package org.skillsrock.task.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,13 +31,14 @@ public class Transaction {
   @JoinColumn(name = "wallet_id", nullable = false)
   private Wallet wallet;
 
-  @Column(name = "operation_type")
+  @Column(name = "operation_type", nullable = false)
+  @Enumerated(EnumType.STRING)
   OperationType operationType;
 
-  @Column(name = "amount")
+  @Column(name = "amount", nullable = false, precision = 19, scale = 2)
   BigDecimal amount;
 
-  @Column(name = "date_of_operation")
+  @Column(name = "date_of_operation", nullable = false)
   private LocalDateTime dateOfOperation;
 
 }

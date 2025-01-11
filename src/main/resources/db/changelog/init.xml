@@ -29,7 +29,7 @@
       <column name="amount" type="decimal(19,2)">
         <constraints nullable="false"/>
       </column>
-      <column name="timestamp" type="timestamp">
+      <column name="date_of_operation" type="timestamp">
         <constraints nullable="false"/>
       </column>
     </createTable>
