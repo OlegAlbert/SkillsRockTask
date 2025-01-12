@@ -1,10 +1,13 @@
 package org.skillsrock.task.service;
 
 import java.util.UUID;
-import org.skillsrock.task.dto.BalanceResponseDTO;
+import org.skillsrock.task.dto.WalletResponseDTO;
+import org.skillsrock.task.dto.WalletUpdateRequestDTO;
 
 public interface WalletService {
 
-  BalanceResponseDTO getWalletBalance(UUID walletId);
+  WalletResponseDTO getWalletBalance(UUID walletId);
+
+  WalletResponseDTO updateWalletBalance(WalletUpdateRequestDTO walletUpdateRequestDTO);
 
 }
