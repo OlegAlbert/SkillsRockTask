@@ -22,15 +22,15 @@ public class WalletController {
   private final WalletService walletService;
 
   @PostMapping("/wallet")
-  public ResponseEntity<WalletResponseDTO> updateWalletBalance(@Valid @RequestBody WalletUpdateRequestDTO walletUpdateRequestDTO) {
+  public ResponseEntity<WalletResponseDTO> updateWalletBalance(
+      @Valid @RequestBody WalletUpdateRequestDTO walletUpdateRequestDTO) {
     WalletResponseDTO response = walletService.updateWalletBalance(walletUpdateRequestDTO);
     return ResponseEntity.ok(response);
   }
 
-  @GetMapping("/wallets/{WALLET_UUID}")
-  public ResponseEntity<WalletResponseDTO> getWalletBalance(@PathVariable UUID WALLET_UUID) {
-    WalletResponseDTO response = walletService.getWalletBalance(WALLET_UUID);
+  @GetMapping("/wallets/{wallet_uuid}")
+  public ResponseEntity<WalletResponseDTO> getWalletBalance(@PathVariable UUID wallet_uuid) {
+    WalletResponseDTO response = walletService.getWalletBalance(wallet_uuid);
     return ResponseEntity.ok(response);
   }
-
 }

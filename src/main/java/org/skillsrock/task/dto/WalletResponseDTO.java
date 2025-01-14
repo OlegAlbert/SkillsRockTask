@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public record WalletResponseDTO(
-    UUID id,
+
+    UUID walletId,
+
     BigDecimal balance
 ) {
 

@@ -3,8 +3,8 @@ WORKDIR /opt/app
 COPY gradlew settings.gradle build.gradle ./
 COPY gradle /opt/app/gradle
 COPY ./src ./src
-RUN chmod +x gradlew
-RUN ./gradlew clean build -x test
+RUN chmod +x gradlew \
+&& ./gradlew clean build -x test
 
 FROM openjdk:17-jdk-slim
 WORKDIR /opt/app

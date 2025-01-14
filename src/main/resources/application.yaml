@@ -1,11 +1,11 @@
 spring:
   application:
-    name: testtask
+    name: task
 
   datasource:
-    url: jdbc:postgresql://localhost:5433/wallet_db
-    username: postgres
-    password: 123
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5433/wallet_db}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:123}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
